@@ -29,15 +29,15 @@ def first_word(phrase)
 end
 
 def titleize(word)
+	result = ""
 	not_capitalize = ["the","and","over"]
-	word_array = word.split(" ")
-	word_array.map do |n|
-        if not_capitalize.include?(n)
-        	n
-        else
-        	n.capitalize
-        end
+	word.split.map.with_index do |w,index| 
+		if(not_capitalize.include?(w) && index > 0)
+			result += " "+ w
+		else
+			result +=" "+ w.capitalize
+		end
 	end
-	
+	return result.strip
 end
 
